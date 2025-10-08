@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Quiz App — Lightweight Interactive Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  
+
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Online Quiz App — Lightweight Interactive Quiz</h1>
+      <div class="small">Built with HTML, CSS, JavaScript</div>
+    </header>
+
+    <div class="card">
+      <div class="settings">
+        <div>
+          <label for="source">Questions source</label>
+          <select id="source">
+            <option value="local">Local (sample)</option>
+            <option value="opentdb">Open Trivia DB (online)</option>
+          </select>
+        </div>
+        <div>
+          <label for="category">Category (OpenTDB only)</label>
+          <select id="category">
+            <option value="any">Any</option>
+            <option value="9">General Knowledge</option>
+            <option value="17">Science & Nature</option>
+            <option value="18">Computers</option>
+            <option value="21">Sports</option>
+            <option value="23">History</option>
+          </select>
+        </div>
+        <div>
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty">
+            <option value="any">Any</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div>
+          <label for="count">Questions</label>
+          <input id="count" type="number" value="8" min="1" max="20" />
+        </div>
+        <div>
+          <label for="timePer">Time per question (sec)</label>
+          <input id="timePer" type="number" value="20" min="5" max="120" />
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn">Start Quiz</button>
+        <button id="nextBtn" class="ghost" disabled>Next</button>
+        <button id="reviewBtn" class="ghost" disabled>Review Answers</button>
+        <button id="resetBtn" class="ghost">Reset Highscores</button>
+      </div>
+
+      <div class="quiz-area" aria-live="polite">
+        <div class="meta">
+          <div class="small">Question <span id="qIndex">0</span>/<span id="qTotal">0</span></div>
+          <div class="progress" title="Progress">
+            <i id="progressBar"></i>
+          </div>
+          <div class="timer" id="timer">--</div>
+        </div>
+
+        <div id="questionBox" style="display:none">
+          <div class="question" id="questionText">Question will appear here</div>
+          <div class="options" id="options"></div>
+          <div class="footer">
+            <div class="small">Score: <strong id="score">0</strong></div>
+            <div>
+              <button id="submitBtn" class="ghost" disabled>Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="startInfo" style="padding:12px;margin-top:10px">
+          <p class="small">Click <strong>Start Quiz</strong> to begin. You can choose to load questions from Open Trivia DB or use the local sample set. Each question shows instant feedback and is scored immediately.</p>
+        </div>
+
+        <div id="resultCard" style="display:none;margin-top:12px">
+          <div class="card" style="padding:12px">
+            <h3>Quiz Completed</h3>
+            <p class="small">Your final score: <strong id="finalScore">0</strong></p>
+            <p class="small">Correct: <span id="correctCount">0</span> &nbsp;|&nbsp; Wrong: <span id="wrongCount">0</span></p>
+            <div style="margin-top:8px">
+              <input id="playerName" placeholder="Enter name for leaderboard (optional)" style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);width:60%" />
+              <button id="saveScoreBtn">Save Score</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="scoreboard" id="leaderboard" style="display:block;margin-top:12px">
+          <h4 style="margin:6px 0">Leaderboard</h4>
+          <div class="leaderboard" id="scoreList"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>Tip: If you choose Open Trivia DB and questions fail to load, check your internet connection.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
