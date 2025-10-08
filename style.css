@@ -1,0 +1,304 @@
+:root {
+  --accent: #4f46e5;
+  --bg: #0f172a;
+  --card: #0b1220;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  background: linear-gradient(180deg, #071024 0%, #07121b 100%);
+  color: #e6eef8;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.container { width: 100%; max-width: 920px; }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+header h1 { font-size: 20px; margin: 0; }
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(2, 6, 23, 0.6);
+}
+
+.settings {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: #bcd2ff;
+  margin-bottom: 6px;
+}
+
+select, input[type=number] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  color: inherit;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.quiz-area { margin-top: 14px; }
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.progress {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress > i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #06b6d4);
+  width: 0%;
+}
+
+.timer {
+  font-weight: 700;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.question {
+  font-size: 18px;
+  margin: 10px 0 14px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.option {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.option:hover { transform: translateY(-2px); }
+
+.option.correct {
+  border-color: rgba(34, 197, 94, 0.8);
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.12), transparent);
+}
+
+.option.wrong {
+  border-color: rgba(239, 68, 68, 0.8);
+  background: linear-gradient(90deg, rgba(239, 68, 68, 0.08), transparent);
+}
+
+.small { font-size: 13px; color: #bcd2ff; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.scoreboard { margin-top: 16px; }
+
+.leaderboard {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: #9fb1d9;
+}
+
+@media (max-width: 640px) {
+  .question { font-size: 16px; }
+}
+
+
+/* Make dropdown text always visible and easy to read */
+select {
+  background-color: #ffffff;
+  color: #111;
+  font-weight: 600;
+  border: 2px solid #007bff33;
+  border-radius: 8px;
+  padding: 8px 10px;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* Add a small down arrow icon */
+select {
+  background-image: linear-gradient(45deg, transparent 50%, #007bff 50%),
+                    linear-gradient(135deg, #007bff 50%, transparent 50%);
+  background-position: calc(100% - 15px) calc(1em + 2px), calc(100% - 10px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* When the dropdown is open or hovered */
+select:hover, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px #007bff55;
+}
+
+/* Dropdown option style */
+option {
+  background-color: #fff;
+  color: #111;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+
+
+
+
+/* ===== Modern Bright Input & Dropdown Styling ===== */
+
+.setup-group label {
+  display: block;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+/* Common look for select and number inputs */
+select,
+input[type=number] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  background-color: #ffffff;
+  border: 2px solid #007bff33;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Add nice shadow and glow on hover/focus */
+select:hover, input[type=number]:hover,
+select:focus, input[type=number]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px #007bff55;
+}
+
+/* Dropdown arrow icon */
+select {
+  background-image: linear-gradient(45deg, transparent 50%, #007bff 50%),
+                    linear-gradient(135deg, #007bff 50%, transparent 50%);
+  background-position: calc(100% - 15px) calc(1em + 2px),
+                       calc(100% - 10px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* Options inside dropdown */
+option {
+  background-color: #fff;
+  color: #111;
+  font-weight: 500;
+  padding: 6px 10px;
+}
+
+/* Label colors for specific fields */
+#source, #category {
+  border-color: #00aaff55;
+}
+
+#difficulty {
+  border-color: #28a74555;
+}
+
+#count {
+  border-color: #ff980055;
+}
+
+#timePer {
+  border-color: #f4433655;
+}
+
+/* Hover effect by category color */
+#source:hover, #category:hover {
+  box-shadow: 0 0 6px #00aaff88;
+}
+
+#difficulty:hover {
+  box-shadow: 0 0 6px #28a74588;
+}
+
+#count:hover {
+  box-shadow: 0 0 6px #ff980088;
+}
+
+#timePer:hover {
+  box-shadow: 0 0 6px #f4433688;
+}
